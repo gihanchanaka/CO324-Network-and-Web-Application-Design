@@ -1,0 +1,4 @@
+When multiple threads use the same buffer to write data,
+The buffer might mix the data from two threads.
+
+Ex: IF data is AAAAAA and BBBBBB the buffer might store AABBABABAABB

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<script>
+    const source = new EventSource('stream');
+    source.onmessage = function (e) {
+        var priceAndTime=JSON.parse(e.data);
+        var time=priceAndTime.timeStamp;
+        var price=priceAndTime.price;
+
+        const stockprice = document.getElementById('printHere');
+
+        stockprice.insertAdjacentHTML('afterbegin', 'Stock price : '+price+' Time stamp : '+time+'<br>');
+
+    };
+</script>  
+</head>
+
+<body>
+<h1>Stock price update event stream</h1>
+<div id="printHere"></div>
+</body>
+</html>
